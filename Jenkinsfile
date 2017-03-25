@@ -18,10 +18,13 @@
  */
 
 try {
+        
+// define variables here for global use
+def JAVA_JDK_8=tool name: 'JDK 1.8 (latest)', type: 'hudson.model.JDK'
+        
 node('Windows') {
-        def JAVA_JDK_8=tool name: 'JDK 1.8 (latest)', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_8"
-        stage('JAVA'){
+        stage('JAVA 1.8 (Latest) on Windows'){
         withEnv(["Path+JDK=$JAVA_JDK_8\\bin","JAVA_HOME=$JAVA_JDK_8"]) {
                 bat "echo %JAVA_HOME%"
                 }
@@ -29,11 +32,10 @@ node('Windows') {
     } // end node Windows
 
 node('ubuntu') {
-        def JAVA_JDK_8=tool name: 'JDK 1.8 (latest)', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_8"
-        stage('JAVA'){
-        withEnv(["Path+JDK=$JAVA_JDK_8\\bin","JAVA_HOME=$JAVA_JDK_8"]) {
-                sh "echo %JAVA_HOME%"
+        stage('JAVA 1.8 (Latest) on Ubuntu'){
+        withEnv(["Path+JDK=$JAVA_JDK_8/bin","JAVA_HOME=$JAVA_JDK_8"]) {
+                sh "echo $JAVA_HOME"
                 }
         } //end stage JAVA
     } // end node ubuntu
