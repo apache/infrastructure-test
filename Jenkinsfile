@@ -17,10 +17,10 @@
  * under the License.
  */
 
-try {
-        
 // define variables here for global use
 def JAVA_JDK_8=tool name: 'JDK 1.8 (latest)', type: 'hudson.model.JDK'
+
+try {
         
 node('Windows') {
         echo "Testing with Java $JAVA_JDK_8"
