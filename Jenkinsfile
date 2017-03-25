@@ -23,8 +23,6 @@ node('Windows') {
         echo "Testing with Java $JAVA_JDK_8"
         stage('JAVA'){
         withEnv(["Path+JDK=$JAVA_JDK_8\\bin","JAVA_HOME=$JAVA_JDK_8"]) {
-                bat "set"
-                bat "echo %PATH%"
                 bat "echo %JAVA_HOME%"
                 }
         } //end stage JAVA
