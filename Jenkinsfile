@@ -17,25 +17,16 @@
  * under the License.
  */
 
-pipeline {
-        agent {
-        label 'Windows'
-    }
-    stages {
-        stage('JAVA') {
-            steps { 
-                bat 'echo %JAVA_HOME%'
-            }
-        }
-        stage('ANT') {
-            steps { 
-                bat 'echo %ANT_HOME%'
-            }
-        }    
-        stage('MAVEN') {
-            steps { 
-                bat 'echo %MAVEN_HOME%'
-            }
-        }
+try {
+node('Windows') {
+        stage('JAVA'){
+        bat "echo %JAVA_HOME%"
+        } //end stage JAVA
+    } // end node Windows
+} // end try
+
+finally {
+    node('ubuntu') {
+        emailext body: "See ${env.BUILD_URL}", recipientProviders: [[$class: 'CulpritsRecipientProvider'], [$class: 'FailingTestSuspectsRecipientProvider'], [$class: 'FirstFailingBuildSuspectsRecipientProvider']], replyTo: 'users@infra.apache.org', subject: "${env.JOB_NAME} - build ${env.BUILD_DISPLAY_NAME} - ${currentBuild.result}", to: 'gmcdonald@apache.org'
     }
 }
