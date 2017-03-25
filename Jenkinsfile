@@ -23,7 +23,7 @@ node('Windows') {
         def JAVA_JDK_8=tool name: 'JDK 1.8 (latest)', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_8"
         def MAVEN_3_LATEST=tool name: 'Maven 3 (latest)', type: 'hudson.tasks.Maven$MavenInstallation'
-        echo "Testing with Maven $MAVEN_3_LATEST
+        echo "Testing with Maven $MAVEN_3_LATEST"
         
         stage('JAVA 1.8 (Latest) on Windows'){
         withEnv(["Path+JDK=$JAVA_JDK_8\\bin","JAVA_HOME=$JAVA_JDK_8"]) {
