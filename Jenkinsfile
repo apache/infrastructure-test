@@ -33,7 +33,7 @@ node('ubuntu') {
         echo "Testing with Java $JAVA_JDK_8"
         stage('JAVA'){
         withEnv(["Path+JDK=$JAVA_JDK_8\\bin","JAVA_HOME=$JAVA_JDK_8"]) {
-                bat "echo %JAVA_HOME%"
+                sh "echo %JAVA_HOME%"
                 }
         } //end stage JAVA
     } // end node ubuntu
