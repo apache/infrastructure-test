@@ -24,6 +24,8 @@ node('Windows') {
         echo "Testing with Java $JAVA_JDK_8"
         def MAVEN_3_LATEST=tool name: 'Maven 3 (latest)', type: 'hudson.tasks.Maven$MavenInstallation'
         echo "Testing with Maven $MAVEN_3_LATEST"
+        def ANT_LATEST=tool name: 'Ant (latest)', type: 'hudson.model.ANT'
+        echo "Testing with Ant $ANT_LATEST"
         
         stage('JAVA 1.8 (Latest) on Windows'){
         withEnv(["Path+JDK=$JAVA_JDK_8\\bin","JAVA_HOME=$JAVA_JDK_8"]) {
@@ -45,6 +47,8 @@ node('ubuntu') {
         echo "Testing with Java $JAVA_JDK_8"
         def MAVEN_3_LATEST=tool name: 'Maven 3 (latest)', type: 'hudson.tasks.Maven$MavenInstallation'
         echo "Testing with Maven $MAVEN_3_LATEST"
+        def ANT_LATEST=tool name: 'Ant (latest)', type: 'hudson.model.ANT'
+        echo "Testing with Ant $ANT_LATEST"
         
         stage('JAVA 1.8 (Latest) on Ubuntu'){
         withEnv(["Path+JDK=$JAVA_JDK_8/bin","JAVA_HOME=$JAVA_JDK_8"]) {
@@ -58,6 +62,13 @@ node('ubuntu') {
                 sh "mvn -version"
                 }
         } //end stage MAVEN 3
+        
+        stage('Ant (Latest) on Ubuntu'){
+        withEnv(["Path+JDK=$JAVA_JDK_8/bin","Path+MAVEN=$MAVEN_3_LATEST/bin",
+                 "Path+ANT=$ANT_LATEST","JAVA_HOME=$JAVA_JDK_8"],"ANT_HOME=$ANT_LATEST) {
+                sh "ant -version"
+                }
+        } //end stage ANT
         
     } // end node ubuntu
         
