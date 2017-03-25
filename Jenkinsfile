@@ -29,6 +29,17 @@ node('Windows') {
     } // end node Windows
 } // end try
 
+node('ubuntu') {
+        def JAVA_JDK_8=tool name: 'JDK 1.8 (latest)', type: 'hudson.model.JDK'
+        echo "Testing with Java $JAVA_JDK_8"
+        stage('JAVA'){
+        withEnv(["Path+JDK=$JAVA_JDK_8\\bin","JAVA_HOME=$JAVA_JDK_8"]) {
+                bat "echo %JAVA_HOME%"
+                }
+        } //end stage JAVA
+    } // end node ubuntu
+} // end try
+
 finally {
     node('ubuntu') {
         emailext body: "See ${env.BUILD_URL}", recipientProviders: [[$class: 'CulpritsRecipientProvider'], [$class: 'FailingTestSuspectsRecipientProvider'], [$class: 'FirstFailingBuildSuspectsRecipientProvider']], replyTo: 'users@infra.apache.org', subject: "${env.JOB_NAME} - build ${env.BUILD_DISPLAY_NAME} - ${currentBuild.result}", to: 'gmcdonald@apache.org'
