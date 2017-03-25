@@ -24,7 +24,7 @@ node('Windows') {
         echo "Testing with Java $JAVA_JDK_8"
         def MAVEN_3_LATEST=tool name: 'Maven 3 (latest)', type: 'hudson.tasks.Maven$MavenInstallation'
         echo "Testing with Maven $MAVEN_3_LATEST"
-        def ANT_LATEST=tool name: 'Ant (latest)', type: 'hudson.model.ANT'
+        def ANT_LATEST=tool name: 'Ant (latest)', type: 'hudson.tasks.Ant$AntInstallation'
         echo "Testing with Ant $ANT_LATEST"
         
         stage('JAVA 1.8 (Latest) on Windows'){
@@ -47,7 +47,7 @@ node('ubuntu') {
         echo "Testing with Java $JAVA_JDK_8"
         def MAVEN_3_LATEST=tool name: 'Maven 3 (latest)', type: 'hudson.tasks.Maven$MavenInstallation'
         echo "Testing with Maven $MAVEN_3_LATEST"
-        def ANT_LATEST=tool name: 'Ant (latest)', type: 'hudson.model.ANT'
+        def ANT_LATEST=tool name: 'Ant (latest)', type: 'hudson.tasks.Ant$AntInstallation'
         echo "Testing with Ant $ANT_LATEST"
         
         stage('JAVA 1.8 (Latest) on Ubuntu'){
