@@ -40,6 +40,13 @@ node('Windows') {
                 }
         } //end stage MAVEN 3
         
+        stage('Ant (Latest) on Windows'){
+        withEnv(["Path+JDK=$JAVA_JDK_8\\bin","Path+MAVEN=$MAVEN_3_LATEST\\bin",
+                 "Path+ANT=$ANT_LATEST","JAVA_HOME=$JAVA_JDK_8","ANT_HOME=$ANT_LATEST"]) {
+                bat "ant -version"
+                }
+        } //end stage ANT
+        
     } // end node Windows
 
 node('ubuntu') {
