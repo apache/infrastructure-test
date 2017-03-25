@@ -27,13 +27,14 @@ node('Windows') {
         
         stage('JAVA 1.8 (Latest) on Windows'){
         withEnv(["Path+JDK=$JAVA_JDK_8\\bin","JAVA_HOME=$JAVA_JDK_8"]) {
-                bat "echo %JAVA_HOME%"
+                bat "java -version"
+                bat "javac -version"
                 }
         } //end stage JAVA 1.8
         
         stage('MAVEN 3 (Latest) on Windows'){
         withEnv(["Path+JDK=$JAVA_JDK_8\\bin","Path+MAVEN=$MAVEN_3_LATEST\\bin","JAVA_HOME=$JAVA_JDK_8"]) {
-                bat "echo %MAVEN_HOME%"
+                bat "mvn -version"
                 }
         } //end stage MAVEN 3
         
