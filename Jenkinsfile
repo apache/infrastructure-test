@@ -19,8 +19,14 @@
 
 try {
 node('Windows') {
+        def JAVA_JDK_8=tool name: 'JDK 1.8 (latest)', type: 'hudson.model.JDK'
+        echo "Testing with Java $JAVA_JDK_8"
         stage('JAVA'){
-        bat "echo %JAVA_HOME%"
+        withEnv(["Path+JDK=$JAVA_JDK_8\\bin","JAVA_HOME=$JAVA_JDK_8"]) {
+                bat "set"
+                bat "echo %PATH%"
+                bat "echo %JAVA_HOME%"
+                }
         } //end stage JAVA
     } // end node Windows
 } // end try
