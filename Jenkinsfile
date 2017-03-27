@@ -81,6 +81,11 @@ node('ubuntu') {
         
 } // end try
 
+catch (e) {
+        echo 'Something went wrong'
+        throw e
+} // end catch
+
 finally {
     node('ubuntu') {
         emailext body: "See ${env.BUILD_URL}", recipientProviders: [[$class: 'CulpritsRecipientProvider'], [$class: 'FailingTestSuspectsRecipientProvider'], [$class: 'FirstFailingBuildSuspectsRecipientProvider']], replyTo: 'users@infra.apache.org', subject: "${env.JOB_NAME} - build ${env.BUILD_DISPLAY_NAME} - ${currentBuild.result}", to: 'gmcdonald@apache.org'
