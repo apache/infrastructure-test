@@ -84,6 +84,7 @@ node('ubuntu') {
 catch (e) {
         echo 'Something went wrong'
         throw e
+} // end catch
 
 finally {
     node('ubuntu') {
