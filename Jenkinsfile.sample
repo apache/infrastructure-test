@@ -24,6 +24,8 @@ node('Windows') {
         echo "Testing with Java $JAVA_JDK_8"
         def MAVEN_3_LATEST=tool name: 'Maven 3 (latest)', type: 'hudson.tasks.Maven$MavenInstallation'
         echo "Testing with Maven $MAVEN_3_LATEST"
+        def MAVEN_2_LATEST=tool name: 'Maven 2 (latest)', type: 'hudson.tasks.Maven$MavenInstallation'
+        echo "Testing with Maven $MAVEN_2_LATEST"
         def ANT_LATEST=tool name: 'Ant (latest)', type: 'hudson.tasks.Ant$AntInstallation'
         echo "Testing with Ant $ANT_LATEST"
         
@@ -40,6 +42,12 @@ node('Windows') {
                 }
         } //end stage MAVEN 3
         
+        stage('MAVEN 2 (Latest) on Windows'){
+        withEnv(["Path+JDK=$JAVA_JDK_8\\bin","Path+MAVEN=$MAVEN_2_LATEST\\bin","JAVA_HOME=$JAVA_JDK_8"]) {
+                bat "mvn -version"
+                }
+        } //end stage MAVEN 2
+        
         stage('Ant (Latest) on Windows'){
         withEnv(["Path+JDK=$JAVA_JDK_8\\bin","Path+MAVEN=$MAVEN_3_LATEST\\bin",
                  "Path+ANT=$ANT_LATEST\\bin","JAVA_HOME=$JAVA_JDK_8","ANT_HOME=$ANT_LATEST"]) {
@@ -54,6 +62,8 @@ node('ubuntu') {
         echo "Testing with Java $JAVA_JDK_8"
         def MAVEN_3_LATEST=tool name: 'Maven 3 (latest)', type: 'hudson.tasks.Maven$MavenInstallation'
         echo "Testing with Maven $MAVEN_3_LATEST"
+        def MAVEN_2_LATEST=tool name: 'Maven 2 (latest)', type: 'hudson.tasks.Maven$MavenInstallation'
+        echo "Testing with Maven $MAVEN_2_LATEST"
         def ANT_LATEST=tool name: 'Ant (latest)', type: 'hudson.tasks.Ant$AntInstallation'
         echo "Testing with Ant $ANT_LATEST"
         
@@ -69,6 +79,12 @@ node('ubuntu') {
                 sh "mvn -version"
                 }
         } //end stage MAVEN 3
+        
+                stage('MAVEN 2 (Latest) on Ubuntu'){
+        withEnv(["Path+JDK=$JAVA_JDK_8/bin","Path+MAVEN=$MAVEN_2_LATEST/bin","JAVA_HOME=$JAVA_JDK_8"]) {
+                sh "mvn -version"
+                }
+        } //end stage MAVEN 2
         
         stage('Ant (Latest) on Ubuntu'){
         withEnv(["Path+JDK=$JAVA_JDK_8/bin","Path+MAVEN=$MAVEN_3_LATEST/bin",
