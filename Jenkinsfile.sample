@@ -32,6 +32,13 @@ node('Windows') {
         echo "Testing with Maven $MAVEN_2_LATEST"
         def ANT_LATEST=tool name: 'Ant (latest)', type: 'hudson.tasks.Ant$AntInstallation'
         echo "Testing with Ant $ANT_LATEST"
+       
+        stage('JAVA 1.9 (Latest) on Windows'){
+        withEnv(["Path+JDK=$JAVA_JDK_9\\bin","JAVA_HOME=$JAVA_JDK_9"]) {
+                bat "java -version"
+                bat "javac -version"
+                }
+        } //end stage JAVA 1.9
         
         stage('JAVA 1.8 (Latest) on Windows'){
         withEnv(["Path+JDK=$JAVA_JDK_8\\bin","JAVA_HOME=$JAVA_JDK_8"]) {
@@ -81,6 +88,13 @@ node('ubuntu') {
         echo "Testing with Maven $MAVEN_2_LATEST"
         def ANT_LATEST=tool name: 'Ant (latest)', type: 'hudson.tasks.Ant$AntInstallation'
         echo "Testing with Ant $ANT_LATEST"
+        
+        stage('JAVA 1.9 (Latest) on Ubuntu'){
+        withEnv(["Path+JDK=$JAVA_JDK_9/bin","JAVA_HOME=$JAVA_JDK_9"]) {
+                sh "java -version"
+                sh "javac -version"
+                }
+        } //end stage JAVA 1.9
         
         stage('JAVA 1.8 (Latest) on Ubuntu'){
         withEnv(["Path+JDK=$JAVA_JDK_8/bin","JAVA_HOME=$JAVA_JDK_8"]) {
