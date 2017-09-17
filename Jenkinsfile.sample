@@ -20,6 +20,8 @@
 try {
         
 node('Windows') {
+        def JAVA_JDK_9=tool name: 'JDK 1.9 (latest)', type: 'hudson.model.JDK'
+        echo "Testing with Java $JAVA_JDK_9"
         def JAVA_JDK_8=tool name: 'JDK 1.8 (latest)', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_8"
         def JAVA_JDK_7=tool name: 'JDK 1.7 (latest)', type: 'hudson.model.JDK'
@@ -67,6 +69,8 @@ node('Windows') {
     } // end node Windows
 
 node('ubuntu') {
+        def JAVA_JDK_9=tool name: 'JDK 1.9 (latest)', type: 'hudson.model.JDK'
+        echo "Testing with Java $JAVA_JDK_9"
         def JAVA_JDK_8=tool name: 'JDK 1.8 (latest)', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_8"
         def JAVA_JDK_7=tool name: 'JDK 1.7 (latest)', type: 'hudson.model.JDK'
