@@ -1,0 +1,17 @@
+name: Puppet Lint
+
+on: [push]
+
+jobs:
+  puppet-lint:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: puppet-lint
+      uses: scottbrenner/puppet-lint-action@master
+      with:
+        args: ./
