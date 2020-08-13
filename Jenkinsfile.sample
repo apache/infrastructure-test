@@ -26,6 +26,8 @@ node('ubuntu') {
         echo "Testing with Java $JAVA_JDK_8"
         def JAVA_JDK_7=tool name: 'JDK 1.7 (latest)', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_7"
+        def JAVA_JDK_6=tool name: 'JDK 1.6 (latest)', type: 'hudson.model.JDK'
+        echo "Testing with Java $JAVA_JDK_6"
         def MAVEN_3_LATEST=tool name: 'Maven 3 (latest)', type: 'hudson.tasks.Maven$MavenInstallation'
         echo "Testing with Maven $MAVEN_3_LATEST"
         def MAVEN_2_LATEST=tool name: 'Maven 2 (latest)', type: 'hudson.tasks.Maven$MavenInstallation'
