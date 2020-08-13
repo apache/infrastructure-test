@@ -28,6 +28,8 @@ node('ubuntu') {
         echo "Testing with Java $JAVA_JDK_7"
         def JAVA_JDK_6=tool name: 'JDK 1.6 (latest)', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_6"
+        def JAVA_JDK_5=tool name: 'JDK 1.5 (latest)', type: 'hudson.model.JDK'
+        echo "Testing with Java $JAVA_JDK_5"
         def MAVEN_3_LATEST=tool name: 'Maven 3 (latest)', type: 'hudson.tasks.Maven$MavenInstallation'
         echo "Testing with Maven $MAVEN_3_LATEST"
         def MAVEN_2_LATEST=tool name: 'Maven 2 (latest)', type: 'hudson.tasks.Maven$MavenInstallation'
@@ -62,6 +64,13 @@ node('ubuntu') {
                 sh "javac -version"
                 }
         } //end stage JAVA 1.6
+        
+        stage('JAVA 1.5 (Latest) on Ubuntu'){
+        withEnv(["Path+JDK=$JAVA_JDK_5/bin","JAVA_HOME=$JAVA_JDK_5"]) {
+                sh "java -version"
+                sh "javac -version"
+                }
+        } //end stage JAVA 1.5
         
         stage('MAVEN 3 (Latest) on Ubuntu'){
         withEnv(["Path+JDK=$JAVA_JDK_8/bin","Path+MAVEN=$MAVEN_3_LATEST/bin","JAVA_HOME=$JAVA_JDK_8"]) {
