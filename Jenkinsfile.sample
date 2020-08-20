@@ -20,6 +20,8 @@
 try {
         
 node('ubuntu') {
+        def JAVA_JDK_13=tool name: 'JDK 13 (latest)', type: 'hudson.model.JDK'
+        echo "Testing with Java $JAVA_JDK_13"
         def JAVA_JDK_12=tool name: 'JDK 12 (latest)', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_12"
         def JAVA_JDK_11=tool name: 'JDK 11 (latest)', type: 'hudson.model.JDK'
@@ -38,6 +40,13 @@ node('ubuntu') {
         echo "Testing with Maven $MAVEN_2_LATEST"
         def ANT_LATEST=tool name: 'Ant (latest)', type: 'hudson.tasks.Ant$AntInstallation'
         echo "Testing with Ant $ANT_LATEST"
+        
+        stage('JAVA 13 (Latest) on Ubuntu'){
+        withEnv(["Path+JDK=$JAVA_JDK_13/bin","JAVA_HOME=$JAVA_JDK_13"]) {
+                sh "java -version"
+                sh "javac -version"
+                }
+        } //end stage JAVA 13
         
         stage('JAVA 12 (Latest) on Ubuntu'){
         withEnv(["Path+JDK=$JAVA_JDK_12/bin","JAVA_HOME=$JAVA_JDK_12"]) {
