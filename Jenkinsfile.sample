@@ -20,7 +20,7 @@
 try {
         
 node('ubuntu') {
-        def JAVA_JDK_11=tool name: 'JDK 12 (latest)', type: 'hudson.model.JDK'
+        def JAVA_JDK_12=tool name: 'JDK 12 (latest)', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_12"
         def JAVA_JDK_11=tool name: 'JDK 11 (latest)', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_11"      
