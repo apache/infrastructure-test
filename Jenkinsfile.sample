@@ -20,27 +20,27 @@
 try {
         
 node('ubuntu') {
-        def JAVA_JDK_14=tool name: 'JDK 14 (latest)', type: 'hudson.model.JDK'
+        def JAVA_JDK_14=tool name: 'jdk_14_latest', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_14"
-        def JAVA_JDK_13=tool name: 'JDK 13 (latest)', type: 'hudson.model.JDK'
+        def JAVA_JDK_13=tool name: 'jdk_13_latest', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_13"
-        def JAVA_JDK_12=tool name: 'JDK 12 (latest)', type: 'hudson.model.JDK'
+        def JAVA_JDK_12=tool name: 'jdk_12_latest', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_12"
-        def JAVA_JDK_11=tool name: 'JDK 11 (latest)', type: 'hudson.model.JDK'
+        def JAVA_JDK_11=tool name: 'jdk_11_latest', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_11"      
-        def JAVA_JDK_9=tool name: 'JDK 1.9 (latest)', type: 'hudson.model.JDK'
+        def JAVA_JDK_9=tool name: 'jdk_1.9_latest', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_9"
-        def JAVA_JDK_8=tool name: 'JDK 1.8 (latest)', type: 'hudson.model.JDK'
+        def JAVA_JDK_8=tool name: 'jdk_1.8_latest', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_8"
-        def JAVA_JDK_7=tool name: 'JDK 1.7 (latest)', type: 'hudson.model.JDK'
+        def JAVA_JDK_7=tool name: 'jdk_1.7_latest', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_7"
-        def JAVA_JDK_6=tool name: 'JDK 1.6 (latest)', type: 'hudson.model.JDK'
+        def JAVA_JDK_6=tool name: 'jdk_1.6_latest', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_6"
-        def MAVEN_3_LATEST=tool name: 'Maven 3 (latest)', type: 'hudson.tasks.Maven$MavenInstallation'
+        def MAVEN_3_LATEST=tool name: 'maven_3_latest', type: 'hudson.tasks.Maven$MavenInstallation'
         echo "Testing with Maven $MAVEN_3_LATEST"
-        def MAVEN_2_LATEST=tool name: 'Maven 2 (latest)', type: 'hudson.tasks.Maven$MavenInstallation'
+        def MAVEN_2_LATEST=tool name: 'maven_2_latest', type: 'hudson.tasks.Maven$MavenInstallation'
         echo "Testing with Maven $MAVEN_2_LATEST"
-        def ANT_LATEST=tool name: 'Ant (latest)', type: 'hudson.tasks.Ant$AntInstallation'
+        def ANT_LATEST=tool name: 'ant_latest', type: 'hudson.tasks.Ant$AntInstallation'
         echo "Testing with Ant $ANT_LATEST"
    
            stage('JAVA 14 (Latest) on Ubuntu'){
