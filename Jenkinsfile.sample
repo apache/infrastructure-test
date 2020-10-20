@@ -19,75 +19,57 @@
 
 try {
         
-node('Windows') {
-        def JAVA_JDK_9=tool name: 'JDK 1.9 (latest)', type: 'hudson.model.JDK'
-        echo "Testing with Java $JAVA_JDK_9"
-        def JAVA_JDK_8=tool name: 'JDK 1.8 (latest)', type: 'hudson.model.JDK'
-        echo "Testing with Java $JAVA_JDK_8"
-        def JAVA_JDK_7=tool name: 'JDK 1.7 (latest)', type: 'hudson.model.JDK'
-        echo "Testing with Java $JAVA_JDK_7"
-        def MAVEN_3_LATEST=tool name: 'Maven 3 (latest)', type: 'hudson.tasks.Maven$MavenInstallation'
-        echo "Testing with Maven $MAVEN_3_LATEST"
-        def MAVEN_2_LATEST=tool name: 'Maven 2 (latest)', type: 'hudson.tasks.Maven$MavenInstallation'
-        echo "Testing with Maven $MAVEN_2_LATEST"
-        def ANT_LATEST=tool name: 'Ant (latest)', type: 'hudson.tasks.Ant$AntInstallation'
-        echo "Testing with Ant $ANT_LATEST"
-       
-        stage('JAVA 1.9 (Latest) on Windows'){
-        withEnv(["Path+JDK=$JAVA_JDK_9\\bin","JAVA_HOME=$JAVA_JDK_9"]) {
-                bat "java -version"
-                bat "javac -version"
-                }
-        } //end stage JAVA 1.9
-        
-        stage('JAVA 1.8 (Latest) on Windows'){
-        withEnv(["Path+JDK=$JAVA_JDK_8\\bin","JAVA_HOME=$JAVA_JDK_8"]) {
-                bat "java -version"
-                bat "javac -version"
-                }
-        } //end stage JAVA 1.8
-        
-        stage('JAVA 1.7 (Latest) on Windows'){
-        withEnv(["Path+JDK=$JAVA_JDK_7\\bin","JAVA_HOME=$JAVA_JDK_7"]) {
-                bat "java -version"
-                bat "javac -version"
-                }
-        } //end stage JAVA 1.7
-        
-        stage('MAVEN 3 (Latest) on Windows'){
-        withEnv(["Path+JDK=$JAVA_JDK_8\\bin","Path+MAVEN=$MAVEN_3_LATEST\\bin","JAVA_HOME=$JAVA_JDK_8"]) {
-                bat "mvn -version"
-                }
-        } //end stage MAVEN 3
-        
-        stage('MAVEN 2 (Latest) on Windows'){
-        withEnv(["Path+JDK=$JAVA_JDK_8\\bin","Path+MAVEN=$MAVEN_2_LATEST\\bin","JAVA_HOME=$JAVA_JDK_8"]) {
-                bat "mvn -version"
-                }
-        } //end stage MAVEN 2
-        
-        stage('Ant (Latest) on Windows'){
-        withEnv(["Path+JDK=$JAVA_JDK_8\\bin","Path+MAVEN=$MAVEN_3_LATEST\\bin",
-                 "Path+ANT=$ANT_LATEST\\bin","JAVA_HOME=$JAVA_JDK_8","ANT_HOME=$ANT_LATEST"]) {
-                bat "ant -version"
-                }
-        } //end stage ANT
-        
-    } // end node Windows
-
 node('ubuntu') {
-        def JAVA_JDK_9=tool name: 'JDK 1.9 (latest)', type: 'hudson.model.JDK'
+        def JAVA_JDK_14=tool name: 'jdk_14_latest', type: 'hudson.model.JDK'
+        echo "Testing with Java $JAVA_JDK_14"
+        def JAVA_JDK_13=tool name: 'jdk_13_latest', type: 'hudson.model.JDK'
+        echo "Testing with Java $JAVA_JDK_13"
+        def JAVA_JDK_12=tool name: 'jdk_12_latest', type: 'hudson.model.JDK'
+        echo "Testing with Java $JAVA_JDK_12"
+        def JAVA_JDK_11=tool name: 'jdk_11_latest', type: 'hudson.model.JDK'
+        echo "Testing with Java $JAVA_JDK_11"      
+        def JAVA_JDK_9=tool name: 'jdk_1.9_latest', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_9"
-        def JAVA_JDK_8=tool name: 'JDK 1.8 (latest)', type: 'hudson.model.JDK'
+        def JAVA_JDK_8=tool name: 'jdk_1.8_latest', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_8"
-        def JAVA_JDK_7=tool name: 'JDK 1.7 (latest)', type: 'hudson.model.JDK'
+        def JAVA_JDK_7=tool name: 'jdk_1.7_latest', type: 'hudson.model.JDK'
         echo "Testing with Java $JAVA_JDK_7"
-        def MAVEN_3_LATEST=tool name: 'Maven 3 (latest)', type: 'hudson.tasks.Maven$MavenInstallation'
+        def JAVA_JDK_6=tool name: 'jdk_1.6_latest', type: 'hudson.model.JDK'
+        echo "Testing with Java $JAVA_JDK_6"
+        def MAVEN_3_LATEST=tool name: 'maven_3_latest', type: 'hudson.tasks.Maven$MavenInstallation'
         echo "Testing with Maven $MAVEN_3_LATEST"
-        def MAVEN_2_LATEST=tool name: 'Maven 2 (latest)', type: 'hudson.tasks.Maven$MavenInstallation'
+        def MAVEN_2_LATEST=tool name: 'maven_2_latest', type: 'hudson.tasks.Maven$MavenInstallation'
         echo "Testing with Maven $MAVEN_2_LATEST"
-        def ANT_LATEST=tool name: 'Ant (latest)', type: 'hudson.tasks.Ant$AntInstallation'
+        def ANT_LATEST=tool name: 'ant_latest', type: 'hudson.tasks.Ant$AntInstallation'
         echo "Testing with Ant $ANT_LATEST"
+   
+           stage('JAVA 14 (Latest) on Ubuntu'){
+        withEnv(["Path+JDK=$JAVA_JDK_14/bin","JAVA_HOME=$JAVA_JDK_14"]) {
+                sh "java -version"
+                sh "javac -version"
+                }
+        } //end stage JAVA 14
+        
+        stage('JAVA 13 (Latest) on Ubuntu'){
+        withEnv(["Path+JDK=$JAVA_JDK_13/bin","JAVA_HOME=$JAVA_JDK_13"]) {
+                sh "java -version"
+                sh "javac -version"
+                }
+        } //end stage JAVA 13
+        
+        stage('JAVA 12 (Latest) on Ubuntu'){
+        withEnv(["Path+JDK=$JAVA_JDK_12/bin","JAVA_HOME=$JAVA_JDK_12"]) {
+                sh "java -version"
+                sh "javac -version"
+                }
+        } //end stage JAVA 12
+        
+        stage('JAVA 11 (Latest) on Ubuntu'){
+        withEnv(["Path+JDK=$JAVA_JDK_11/bin","JAVA_HOME=$JAVA_JDK_11"]) {
+                sh "java -version"
+                sh "javac -version"
+                }
+        } //end stage JAVA 11
         
         stage('JAVA 1.9 (Latest) on Ubuntu'){
         withEnv(["Path+JDK=$JAVA_JDK_9/bin","JAVA_HOME=$JAVA_JDK_9"]) {
@@ -108,7 +90,14 @@ node('ubuntu') {
                 sh "java -version"
                 sh "javac -version"
                 }
-        } //end stage JAVA 1.8
+        } //end stage JAVA 1.7
+        
+        stage('JAVA 1.6 (Latest) on Ubuntu'){
+        withEnv(["Path+JDK=$JAVA_JDK_6/bin","JAVA_HOME=$JAVA_JDK_6"]) {
+                sh "java -version"
+                sh "javac -version"
+                }
+        } //end stage JAVA 1.6
         
         stage('MAVEN 3 (Latest) on Ubuntu'){
         withEnv(["Path+JDK=$JAVA_JDK_8/bin","Path+MAVEN=$MAVEN_3_LATEST/bin","JAVA_HOME=$JAVA_JDK_8"]) {
