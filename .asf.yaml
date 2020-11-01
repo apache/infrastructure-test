@@ -16,4 +16,4 @@ github:
         required_approving_review_count: 2
  
       required_signatures: true
-  
+    foo:
