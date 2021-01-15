@@ -1,4 +1,5 @@
 name: Puppet Lint
+# Comment goes here to trigger test hook
 
 on: [push]
 
