@@ -1,5 +1,4 @@
 name: Puppet Lint
-# Another trigger comment
 
 on: [push]
 
