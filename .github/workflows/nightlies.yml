@@ -11,6 +11,7 @@ jobs:
             ghactions-publishing.md
   curl:
     runs-on: ubuntu-latest
+    needs: md_to_html
     steps:
     - uses: actions/checkout@master
     - name: curl
