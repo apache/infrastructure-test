@@ -1,5 +1,14 @@
 on: push
 jobs:
+  md_to_html:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: docker://pandoc/core:2.9
+      with:
+        args: >-
+          --standalone
+          --output=ghactions-publishing.html
+            ghactions-publishing.md
   curl:
     runs-on: ubuntu-latest
     steps:
