@@ -7,4 +7,4 @@ jobs:
     - name: curl
       uses: wei/curl@v1
       with:
-        args: --upload-file .github/workflows/nightlies.yml https://nightlies.apache.org/infrastructure/nightlies-example-workflow.yml
+        args: --user ${{ secrets.NIGHTLIES_USER }}:${{ secrets.NIGHTLIES_TOKEN }} --upload-file .github/workflows/nightlies.yml https://nightlies.apache.org/infrastructure/nightlies-example-workflow.yml
