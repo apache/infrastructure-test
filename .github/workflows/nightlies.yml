@@ -1,0 +1,10 @@
+on: push
+jobs:
+  curl:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: curl
+      uses: wei/curl@v1
+      with:
+        args: --upload-file .github/workflows/nightlies.yml https://nightlies.apache.org/infrastructure/nightlies-example-workflow.yml
