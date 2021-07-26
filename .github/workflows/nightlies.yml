@@ -4,7 +4,7 @@ jobs:
     runs-on: ubuntu-18.04
     env:
       INFILE: ghactions-publishing.md
-      OUTFILE: output-publishing.html
+      OUTFILE: ghactions-publishing.html
     steps:
     - uses: actions/checkout@master
     - name: md_to_html
@@ -16,6 +16,5 @@ jobs:
             ${{ env.INFILE }}
     - name: upload
       run: |
-        ls -la
-        pwd
-        curl --user ${{ secrets.NIGHTLIES_USER }}:${{ secrets.NIGHTLIES_TOKEN }} --upload-file /home/runner/work/infrastructure-test/infrastructure-test/$OUTFILE https://nightlies.apache.org/ghactions-publishing.html
+        cp $OUTFILE $OUTFILE.pub
+        curl --user ${{ secrets.NIGHTLIES_USER }}:${{ secrets.NIGHTLIES_TOKEN }} --upload-file $OUTFILE.pub https://nightlies.apache.org/ghactions-publishing.html
