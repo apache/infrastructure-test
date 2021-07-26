@@ -16,5 +16,4 @@ jobs:
             ${{ env.INFILE }}
     - name: upload
       run: |
-        cp $OUTFILE $OUTFILE.pub
-        curl --user ${{ secrets.NIGHTLIES_USER }}:${{ secrets.NIGHTLIES_TOKEN }} --upload-file $OUTFILE.pub https://nightlies.apache.org/ghactions-publishing.html
+        curl --user ${{ secrets.NIGHTLIES_USER }}:${{ secrets.NIGHTLIES_TOKEN }} --upload-file /github/workspace/$OUTFILE https://nightlies.apache.org/ghactions-publishing.html
