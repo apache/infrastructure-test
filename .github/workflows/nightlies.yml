@@ -10,11 +10,7 @@ jobs:
     - name: md_to_html
       uses: docker://pandoc/core:2.9
       with:
-        args: >-
-          --standalone
-          --output=${{ env.OUTFILE }}
-            ${{ env.INFILE }}
+        args: "--standalone --output=${{ env.OUTFILE }} ${{ env.INFILE }}"
     - name: upload
-      uses: wei/curl@v1
-      with:
-        args: --user ${{ secrets.NIGHTLIES_USER }}:${{ secrets.NIGHTLIES_TOKEN }} --upload-file /github/workspace/$OUTFILE https://nightlies.apache.org/ghactions-publishing.html
+      run: |
+        curl --user ${{ secrets.NIGHTLIES_USER }}:${{ secrets.NIGHTLIES_TOKEN }} --upload-file $OUTFILE https://nightlies.apache.org/ghactions-publishing.html
