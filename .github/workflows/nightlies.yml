@@ -6,8 +6,8 @@ jobs:
       INFILE: ghactions-publishing.md
       OUTFILE: ghactions-publishing.html
     steps:
+    - uses: actions/checkout@master
     - name: md_to_html
-      uses: actions/checkout@master
       uses: docker://pandoc/core:2.9
       with:
         args: >-
