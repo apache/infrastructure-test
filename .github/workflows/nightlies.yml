@@ -3,7 +3,7 @@ jobs:
   md_to_html:
     runs-on: ubuntu-18.04
     env:
-      INFILE: /ghactions-publishing.md
+      INFILE: ghactions-publishing.md
     steps:
     - uses: actions/checkout@master
     - uses: docker://pandoc/core:2.9
