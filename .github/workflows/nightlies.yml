@@ -18,4 +18,4 @@ jobs:
       run: |
         ls -la
         pwd
-        curl --user ${{ secrets.NIGHTLIES_USER }}:${{ secrets.NIGHTLIES_TOKEN }} -T $OUTFILE https://nightlies.apache.org/ghactions-publishing.html
+        curl --user ${{ secrets.NIGHTLIES_USER }}:${{ secrets.NIGHTLIES_TOKEN }} --upload-file /home/runner/work/infrastructure-test/infrastructure-test/$OUTFILE https://nightlies.apache.org/ghactions-publishing.html
