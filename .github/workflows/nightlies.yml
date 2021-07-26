@@ -17,4 +17,5 @@ jobs:
     - name: upload
       run: |
         ls -la
+        pwd
         curl --user ${{ secrets.NIGHTLIES_USER }}:${{ secrets.NIGHTLIES_TOKEN }} -T $OUTFILE https://nightlies.apache.org/ghactions-publishing.html
