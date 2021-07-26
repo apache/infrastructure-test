@@ -16,4 +16,5 @@ jobs:
             ${{ env.INFILE }}
     - name: upload
       run: |
+        ls
         curl --user ${{ secrets.NIGHTLIES_USER }}:${{ secrets.NIGHTLIES_TOKEN }} --upload-file ${{ env.OUTFILE }} https://nightlies.apache.org/ghactions-publishing.html
