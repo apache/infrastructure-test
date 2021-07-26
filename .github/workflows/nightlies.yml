@@ -7,8 +7,8 @@ jobs:
       OUTFILE: ghactions-publishing.html
     steps:
     - name: md_to_html
-    - uses: actions/checkout@master
-    - uses: docker://pandoc/core:2.9
+      uses: actions/checkout@master
+      uses: docker://pandoc/core:2.9
       with:
         args: >-
           --standalone
@@ -16,6 +16,6 @@ jobs:
             ${{ env.INFILE }}
       run: echo OUTPUT=${{ env.OUTFILE }} >> $GITHUB_ENV
     - name: curl
-    - uses: wei/curl@v1
+      uses: wei/curl@v1
       with:
         args: --user ${{ secrets.NIGHTLIES_USER }}:${{ secrets.NIGHTLIES_TOKEN }} --upload-file ${{ env.OUTPUT }} https://nightlies.apache.org/ghactions-publishing.html
