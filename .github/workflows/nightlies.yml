@@ -18,4 +18,4 @@ jobs:
     - name: curl
       uses: wei/curl@v1
       with:
-        args: --user ${{ secrets.NIGHTLIES_USER }}:${{ secrets.NIGHTLIES_TOKEN }} --upload-file ${{ env.OUTFILE }} https://nightlies.apache.org/ghactions-publishing.html
+        args: --user ${{ secrets.NIGHTLIES_USER }}:${{ secrets.NIGHTLIES_TOKEN }} --upload-file ${{ env.OUTPUT }} https://nightlies.apache.org/ghactions-publishing.html
