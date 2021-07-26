@@ -4,7 +4,7 @@ jobs:
     runs-on: ubuntu-18.04
     env:
       INFILE: ghactions-publishing.md
-      OUTFILE: ghactions-publishing.html
+      OUTFILE: output-publishing.html
     steps:
     - uses: actions/checkout@master
     - name: md_to_html
