@@ -8,13 +8,12 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: md_to_html
-      uses: docker://pandoc/core:2.9
+    - uses: docker://pandoc/core:2.9
       with:
         args: >-
           --standalone
           --output=${{ env.OUTFILE }}
             ${{ env.INFILE }}
-    - name: curl
       uses: wei/curl@v1
       with:
         args: --user ${{ secrets.NIGHTLIES_USER }}:${{ secrets.NIGHTLIES_TOKEN }} --upload-file ${{ env.OUTFILE }} https://nightlies.apache.org/ghactions-publishing.html
