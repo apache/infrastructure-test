@@ -2,7 +2,7 @@ template: true   # required for local templates
 valuesFilePath: ./values.yml
 
 resources:
-  - name: infrastructure-test
+  - name: infrastructure_test
     type: GitRepo
     configuration:
       # SCM integration where the repository is located
@@ -27,15 +27,15 @@ pipelines:
         configuration:
           inputResources:
             # Sets up step to be triggered when there are commit events to myFirstRepo
-            - name: infrastructure-test
+            - name: infrastructure_test
         execution:
           onExecute:
             # Data from input resources is available as env variables in the step
-            - echo $res_infrastructure-test_commitSha
+            - echo $res_infrastructure_test_commitSha
             # The next two commands add variables to run state, which is available to all downstream steps in this run
             # Run state documentation: https://www.jfrog.com/confluence/display/JFROG/Creating+Stateful+Pipelines#CreatingStatefulPipelines-RunState
             - add_run_variables current_runid=$run_id
-            - add_run_variables commitSha=$res_infrastructure-test_commitSha
+            - add_run_variables commitSha=$res_infrastructure_test_commitSha
             # This variable is written to pipeline state in p1_s3.
             # So this will be empty during first run and will be set to prior run number in subsequent runs
             # Pipeline state documentation: https://www.jfrog.com/confluence/display/JFROG/Creating+Stateful+Pipelines#CreatingStatefulPipelines-PipelineState
