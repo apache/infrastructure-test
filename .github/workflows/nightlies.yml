@@ -1,4 +1,6 @@
-on: push
+on:
+  push:
+    paths-ignore: docs
 jobs:
   upload_to_nightlies:
     runs-on: ubuntu-18.04
