@@ -1,6 +1,7 @@
-on: push
-  paths:
-    - 'docs/*.yml'
+on:
+  push:
+    paths:
+      - 'docs/*.yml'
 jobs:
   upload_to_nightlies:
     runs-on: ubuntu-latest
