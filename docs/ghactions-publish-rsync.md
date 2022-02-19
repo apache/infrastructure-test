@@ -6,6 +6,6 @@ See [nightlies-rsync.yml](https://github.com/apache/infrastructure-test/blob/mas
 
 File an INFRA ticket and state which Github repo you will use to have it whitelisted against the secrets.
 
-Inline example TBD::
+Inline example TBD:
 
 Enjoy!
