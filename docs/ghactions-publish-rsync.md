@@ -6,6 +6,27 @@ See [nightlies-rsync.yml](https://github.com/apache/infrastructure-test/blob/mas
 
 File an INFRA ticket and state which Github repo you will use to have it whitelisted against the secrets.
 
-Inline example eventually...
+Example:
+
+    on:
+      push:
+    jobs:
+      upload_to_nightlies:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@master
+          ... some step(s) to build your docs for transfer...
+        - name: rsync
+          uses: burnett01/rsync-deployments@5.2
+          with:
+            switches: -avzr
+            path: path/to/docs/for/upload*
+            remote_path: ${{ secrets.NIGHTLIES_RSYNC_PATH }}/YourProjectName
+            remote_host: ${{ secrets.NIGHTLIES_RSYNC_HOST }}
+            remote_port: ${{ secrets.NIGHTLIES_RSYNC_PORT }}
+            remote_user: ${{ secrets.NIGHTLIES_RSYNC_USER }}
+            remote_key: ${{ secrets.NIGHTLIES_RSYNC_KEY }}
+
+
 
 Enjoy!
