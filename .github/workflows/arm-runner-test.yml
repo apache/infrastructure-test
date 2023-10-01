@@ -1,7 +1,7 @@
 name: Simple Arm64 test
 
-on: workflow_dispatch:
-    [push]
+on: 
+  workflow_dispatch:
 
 jobs:
   arm-test:
