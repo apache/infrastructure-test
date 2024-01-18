@@ -1,0 +1,14 @@
+name: Simple Arm64 test
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  arm-test:
+
+    runs-on: ["self-hosted", "asf-arm"]
+    
+    steps:
+    - name: Get uname info
+      run: |
+        uname -ipmn

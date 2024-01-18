@@ -1,0 +1,3 @@
+testRepo:
+  gitProvider: "github_artifactory_pipelines"
+  path: "apache/infrastructure-test"

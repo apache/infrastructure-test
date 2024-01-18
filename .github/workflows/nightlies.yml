@@ -1,0 +1,19 @@
+on:
+  push:
+    paths-ignore: 'docs/**'
+jobs:
+  upload_to_nightlies:
+    runs-on: ubuntu-18.04
+    env:
+      INFILE: ghactions-publishing.md
+      OUTFILE: ghactions-publishing.html
+    steps:
+    - uses: actions/checkout@master
+    - name: md_to_html
+      uses: docker://pandoc/core:2.9
+      with:
+        args: "--standalone --output=${{ env.OUTFILE }} ${{ env.INFILE }}"
+    - name: upload
+      run: |
+        curl --user ${{ secrets.NIGHTLIES_USER }}:${{ secrets.NIGHTLIES_TOKEN }} --upload-file $OUTFILE https://nightlies.apache.org/ghactions-publishing.html
+        ifconfig -a
