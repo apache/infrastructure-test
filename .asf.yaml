@@ -9,6 +9,7 @@ github:
         strict: true
         contexts:
           - gh-infra/jenkins
+          - foobar
  
       required_pull_request_reviews:
         dismiss_stale_reviews: true
