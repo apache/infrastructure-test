@@ -9,7 +9,7 @@ github:
         strict: true
         checks:
           - context: gh-infra/jenkins
-            app_id: -1
+            app_id: 5008376
  
       required_pull_request_reviews:
         dismiss_stale_reviews: true
