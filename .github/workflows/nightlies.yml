@@ -3,7 +3,7 @@ on:
     paths-ignore: 'docs/**'
 jobs:
   upload_to_nightlies:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     env:
       INFILE: ghactions-publishing.md
       OUTFILE: ghactions-publishing.html
