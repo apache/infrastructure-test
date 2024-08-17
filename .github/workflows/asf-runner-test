@@ -1,0 +1,14 @@
+name: Simple amd64 test
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  runner-test:
+
+    runs-on: ["self-hosted", "asf-runner"]
+    
+    steps:
+    - name: Get default jdk
+      run: |
+        java -version
