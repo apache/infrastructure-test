@@ -6,5 +6,3 @@ This repository is for creating tests for Jenkins and Buildbot
 works with GH Apps
 testing with Maven jobs!
 
-gnomes again
-
