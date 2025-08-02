@@ -1,1 +1,14 @@
-test
+name: large runner test
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  large-test:
+
+    runs-on: ubuntu-32core-128gb
+    
+    steps:
+    - name: Get uname info
+      run: |
+        uname -ipmn
