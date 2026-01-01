@@ -29,6 +29,4 @@ Example:
             remote_user: ${{ secrets.NIGHTLIES_RSYNC_USER }}
             remote_key: ${{ secrets.NIGHTLIES_RSYNC_KEY }}
 
-
-
 Enjoy!
