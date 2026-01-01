@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: md_to_html
-      uses: docker://pandoc/core:2.9
+      uses: docker://pandoc/core:0dc935cdecc5f5e571865e60d2a6cdc673704823
       with:
         args: "--standalone --output=${{ env.OUTFILE }} ${{ env.INFILE }}"
     - name: upload
