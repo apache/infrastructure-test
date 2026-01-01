@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: md_to_html
-      uses: docker://pandoc/core:48e15e83db0df6fb39b24adb0210ecbde85003a3a8139d526e29c98f95ac0a93
+      uses: docker://pandoc/core@sha256:48e15e83db0df6fb39b24adb0210ecbde85003a3a8139d526e29c98f95ac0a93
       with:
         args: "--standalone --output=${{ env.OUTFILE }} ${{ env.INFILE }}"
     - name: rsync
