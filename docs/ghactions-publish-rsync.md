@@ -15,7 +15,9 @@ Example:
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@master
-          ... some step(s) to build your docs for transfer...
+          ... 
+          some step(s) to build your docs for transfer
+          ...
         - name: rsync
           uses: burnett01/rsync-deployments@0dc935cdecc5f5e571865e60d2a6cdc673704823
           with:
