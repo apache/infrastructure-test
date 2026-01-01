@@ -17,9 +17,9 @@ Example:
         - uses: actions/checkout@master
           ... some step(s) to build your docs for transfer...
         - name: rsync
-          uses: burnett01/rsync-deployments@5.2
+          uses: burnett01/rsync-deployments@0dc935cdecc5f5e571865e60d2a6cdc673704823
           with:
-            switches: -avzr
+            switches: -rlptDvz
             path: path/to/docs/for/upload*
             remote_path: ${{ secrets.NIGHTLIES_RSYNC_PATH }}/YourProjectName
             remote_host: ${{ secrets.NIGHTLIES_RSYNC_HOST }}
