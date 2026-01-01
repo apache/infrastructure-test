@@ -17,7 +17,7 @@ jobs:
     - name: rsync
       uses: burnett01/rsync-deployments@0dc935cdecc5f5e571865e60d2a6cdc673704823
       with:
-        switches: -avzr
+        switches: -rlptDvz
         path: docs/*
         remote_path: ${{ secrets.NIGHTLIES_RSYNC_PATH }}/infrastructure
         remote_host: ${{ secrets.NIGHTLIES_RSYNC_HOST }}
