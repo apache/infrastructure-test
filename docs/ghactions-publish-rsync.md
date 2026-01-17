@@ -29,4 +29,6 @@ Example:
             remote_user: ${{ secrets.NIGHTLIES_RSYNC_USER }}
             remote_key: ${{ secrets.NIGHTLIES_RSYNC_KEY }}
 
+(For switches, `-avz --no-op` also works.)
+
 Enjoy!
