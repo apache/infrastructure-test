@@ -6,7 +6,7 @@ on:
 jobs:
   runner-test:
 
-    runs-on: ["self-hosted", "asf-runner-public-runner"]
+    runs-on: ["self-hosted", "asf-infra-public-runner"]
     
     steps:
     - name: Get default jdk
